@@ -120,6 +120,8 @@ public class EbayCalculatorGUI extends JFrame implements KeyListener {
 
         // Display Net Profit
         JLabel lNetProfit = new JLabel(CommonConstants.NET_PROFIT_LABEL);
+        lNetProfit.setFont(new Font("Dialog", Font.BOLD, CommonConstants.ITEMPANEL_FONT_SIZE));
+
         tFNetProfit = new JNumTextField(10);
         tFNetProfit.setHorizontalAlignment(SwingConstants.CENTER);
         tFNetProfit.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_FONT_SIZE));
@@ -129,6 +131,7 @@ public class EbayCalculatorGUI extends JFrame implements KeyListener {
 
         // Display Profit Margins
         JLabel lNetProfitMargins = new JLabel(CommonConstants.NET_PROFIT_MARGIN_LABEL);
+
         tFNetProfitMargins = new JNumTextField(9);
         tFNetProfitMargins.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_MARGIN_FONT_SIZE));
         tFNetProfitMargins.setEditable(false);
