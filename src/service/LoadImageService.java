@@ -1,4 +1,4 @@
-package utils;
+package service;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -6,13 +6,17 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/*
+ *  Note: place images in the resource folder
+ */
 public class LoadImageService{
     public static JLabel loadImage(String fileName){
         BufferedImage bImage;
         JLabel imageLabel;
 
         try{
-            bImage = ImageIO.read(new File("D:\\Programming Related\\Java Projects\\EbayCalculator\\src\\resources\\logo.png"));
+            String filePath = "src/resources/" + fileName;
+            bImage = ImageIO.read(new File(filePath));
             imageLabel = new JLabel(new ImageIcon(bImage));
 
             return imageLabel;

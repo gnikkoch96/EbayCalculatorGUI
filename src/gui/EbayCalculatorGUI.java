@@ -1,8 +1,8 @@
 package gui;
 
 import contstants.CommonConstants;
-import utils.LoadImageService;
-import utils.SpringLayoutConstraintService;
+import service.LoadImageService;
+import service.SpringLayoutConstraintService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +24,6 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         System.out.println("Start adding GUI items");
         addImageGuiItems();
         addItemGuiItems();
-//        addProfitGuiItems();
         System.out.println("End adding GUI items");
     }
 
@@ -142,29 +141,7 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         System.out.println("End adding Item Panel.");
     }
 
-    public void addProfitGuiItems(){
-        System.out.println("Start adding Profit GUI Items");
 
-        JPanel profitPanel = new JPanel();
-
-        // Display Net Profit
-        JLabel lNetProfit = new JLabel(CommonConstants.NET_PROFIT_LABEL);
-        JTextField tFNetProfit = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
-        tFNetProfit.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_FONT_SIZE));
-        profitPanel.add(lNetProfit);
-        profitPanel.add(tFNetProfit);
-
-        // Display Profit Margins
-        JLabel lNetProfitMargins = new JLabel(CommonConstants.NET_PROFIT_MARGIN_LABEL);
-        JTextField tFNetProfitMargins = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
-        tFNetProfitMargins.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_MARGIN_FONT_SIZE));
-        profitPanel.add(lNetProfitMargins);
-        profitPanel.add(tFNetProfitMargins);
-
-        this.getContentPane().add(profitPanel, BorderLayout.CENTER);
-        System.out.println("End adding Profit GUI Items");
-
-    }
 
 
     @Override
