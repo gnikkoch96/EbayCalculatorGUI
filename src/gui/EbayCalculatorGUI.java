@@ -9,8 +9,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class EbayCalculatorGUI extends JFrame implements ActionListener {
+public class EbayCalculatorGUI extends JFrame implements ActionListener, KeyListener {
     public EbayCalculatorGUI() throws Exception {
         super(CommonConstants.APP_NAME);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -141,11 +143,23 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         System.out.println("End adding Item Panel.");
     }
 
-
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

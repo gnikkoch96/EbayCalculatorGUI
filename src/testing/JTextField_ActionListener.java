@@ -26,5 +26,6 @@ public class JTextField_ActionListener extends JFrame{
 
     public static void main(String[] args) {
         new JTextField_ActionListener().setVisible(true);
+        System.out.println((Double.parseDouble("11.")));
     }
 }
