@@ -196,5 +196,18 @@ public class EbayCalculatorGUI extends JFrame implements KeyListener {
 
         tFNetProfit.setText("$" + df.format(netProfit));
         tFNetProfitMargins.setText(df.format(netProfitMargin) + "%");
+
+        // update the colors of the text
+        if(netProfit < 0){
+            tFNetProfit.setForeground(Color.RED);
+        }else{
+            tFNetProfit.setForeground(new Color(10, 110, 50));
+        }
+
+        if(netProfitMargin < 0){
+            tFNetProfitMargins.setForeground(Color.RED);
+        }else{
+            tFNetProfitMargins.setForeground(new Color(10, 110, 50));
+        }
     }
 }

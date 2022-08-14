@@ -6,7 +6,7 @@ package service;
 public class CalculateProfitService {
     public static float calculateNetProfit(float itemSold, float itemShipping, float itemBought){
         double ebayFees = ((itemSold + itemShipping)) * 0.129 + 0.30;
-        
+
         float netProfit;
 
         try{
