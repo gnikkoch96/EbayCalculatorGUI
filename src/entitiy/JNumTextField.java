@@ -17,13 +17,24 @@ public class JNumTextField extends JTextField{
         this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
+                boolean pressedDot = false;
+
                 String val = getText();
-                int len = val.length();
+
+                if(val.indexOf('.') >= 0){
+                    pressedDot = true;
+                }
 
                 if((e.getKeyChar() >= '0' && e.getKeyChar() <= '9') ||
                         e.getKeyChar() == '.' ||
                         e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
-                    setEditable(true);
+
+                    if(e.getKeyChar() == '.' && pressedDot){
+                        setEditable(false);
+                    }else{
+                        setEditable(true);
+                    }
+
                 }else{
                     setEditable(false);
                 }

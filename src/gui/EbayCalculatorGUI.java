@@ -1,6 +1,7 @@
 package gui;
 
 import contstants.CommonConstants;
+import entitiy.JNumTextField;
 import service.LoadImageService;
 import service.SpringLayoutConstraintService;
 
@@ -15,7 +16,7 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(CommonConstants.FRAME_SIZE[0], CommonConstants.FRAME_SIZE[1]);
         this.setLocationRelativeTo(null);
-//        this.setResizable(false);
+        this.setResizable(false);
 
         addGUIItems();
     }
@@ -63,9 +64,8 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         JLabel lItemSold = new JLabel(CommonConstants.ITEM_SOLD_LABEL);
         lItemSold.setFont(new Font("Dialog", Font.BOLD, CommonConstants.ITEMPANEL_FONT_SIZE));
 
-        JTextField tFItemSold = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        JNumTextField tFItemSold = new JNumTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
         tFItemSold.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
-
 
         itemPanel.add(lItemSold);
         itemPanel.add(tFItemSold);
@@ -74,7 +74,7 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         JLabel lItemSoldShipping = new JLabel(CommonConstants.ITEM_SHIPPING_LABEL);
         lItemSoldShipping.setFont(new Font("Dialog", Font.BOLD, CommonConstants.ITEMPANEL_FONT_SIZE));
 
-        JTextField tFItemSoldShipping = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        JNumTextField tFItemSoldShipping = new JNumTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
         tFItemSoldShipping.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
 
         itemPanel.add(lItemSoldShipping);
@@ -95,7 +95,7 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         JLabel lItemCost = new JLabel(CommonConstants.ITEM_COST_LABEL);
         lItemCost.setFont(new Font("Dialog", Font.BOLD, CommonConstants.ITEMPANEL_FONT_SIZE));
 
-        JTextField tFItemCost = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        JNumTextField tFItemCost = new JNumTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
         tFItemCost.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
 
         itemPanel.add(lItemCost);
