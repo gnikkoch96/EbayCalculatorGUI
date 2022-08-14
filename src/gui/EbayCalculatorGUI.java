@@ -83,6 +83,7 @@ public class EbayCalculatorGUI extends JFrame implements KeyListener {
 
         tFItemSoldShipping = new JNumTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
         tFItemSoldShipping.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
+        tFItemSoldShipping.addKeyListener(this);
 
         itemPanel.add(lItemSoldShipping);
         itemPanel.add(tFItemSoldShipping);
@@ -104,6 +105,7 @@ public class EbayCalculatorGUI extends JFrame implements KeyListener {
 
         tFItemCost = new JNumTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
         tFItemCost.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
+        tFItemCost.addKeyListener(this);
 
         itemPanel.add(lItemCost);
         itemPanel.add(tFItemCost);
@@ -119,14 +121,14 @@ public class EbayCalculatorGUI extends JFrame implements KeyListener {
         JLabel lNetProfit = new JLabel(CommonConstants.NET_PROFIT_LABEL);
         tFNetProfit = new JNumTextField(10);
         tFNetProfit.setHorizontalAlignment(SwingConstants.CENTER);
-        tFNetProfit.setFont(new Font("Dialog", Font.PLAIN, 28));
+        tFNetProfit.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_FONT_SIZE));
         tFNetProfit.setEditable(false);
         itemPanel.add(lNetProfit);
         itemPanel.add(tFNetProfit);
 
         // Display Profit Margins
         JLabel lNetProfitMargins = new JLabel(CommonConstants.NET_PROFIT_MARGIN_LABEL);
-        tFNetProfitMargins = new JNumTextField(8);
+        tFNetProfitMargins = new JNumTextField(9);
         tFNetProfitMargins.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_MARGIN_FONT_SIZE));
         tFNetProfitMargins.setEditable(false);
         itemPanel.add(lNetProfitMargins);
@@ -155,33 +157,38 @@ public class EbayCalculatorGUI extends JFrame implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
         // retrieve the values from the fields
-        float itemSoldVal, itemShippingVal, itemBoughtVal = 0;
+        float itemSoldVal, itemShippingVal, itemBoughtVal;
 
-        if(tFItemSold != "" && tFItemSold != null){
+        try{
             itemSoldVal = Float.parseFloat(tFItemSold.getText());
+        }catch(NumberFormatException nfe){
+            itemSoldVal = 0;
         }
 
-        if(tFItemSoldShipping != "" && tFItemSoldShipping != null){
+        try{
             itemShippingVal = Float.parseFloat(tFItemSoldShipping.getText());
+        }catch(NumberFormatException nfe){
+            itemShippingVal = 0;
         }
 
-        if(tFItemCost != "" && tFItemCost != null){
+        try{
             itemBoughtVal = Float.parseFloat(tFItemCost.getText());
+        }catch(NumberFormatException nfe){
+            itemBoughtVal = 0;
         }
-
 
         // calculate the net profit
         float netProfit = CalculateProfitService.calculateNetProfit(itemSoldVal, itemShippingVal, itemBoughtVal);
         float netProfitMargin = CalculateProfitService.calculateNetProfitMargin(itemSoldVal, itemShippingVal, itemBoughtVal);
 
         // update the net profit gui items
-        tFNetProfit.setText(Float.toString(netProfit));
-        tFNetProfitMargins.setText(Float.toString(netProfitMargin));
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
+        tFNetProfit.setText("$" + Float.toString(netProfit));
+        tFNetProfitMargins.setText(Float.toString(netProfitMargin) + "%");
     }
 }

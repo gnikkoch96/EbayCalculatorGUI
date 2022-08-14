@@ -21,8 +21,8 @@ public class CommonConstants {
 
     // Font Size Configs
     public static final int ITEMPANEL_FONT_SIZE = 18;
-    public static final int ITEMPANEL_NETPROFT_MARGIN_FONT_SIZE = 10;
-    public static final int ITEMPANEL_NETPROFT_FONT_SIZE = 30;
+    public static final int ITEMPANEL_NETPROFT_MARGIN_FONT_SIZE = 15;
+    public static final int ITEMPANEL_NETPROFT_FONT_SIZE = 28;
 
     // Used for padding in the SpringLayout constraints
     public static final int ITEMPANEL_TEXTFIELD_WEST_PAD = 185;
