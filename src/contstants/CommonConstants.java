@@ -8,7 +8,7 @@ public class CommonConstants {
     public static final int[] FRAME_SIZE = {500, 600};
 
     // Filename of the logo (referenced for the image)
-    public static final String LOGO_FILENAME = "logo.png";
+    public static final String LOGO_FILENAME = "banner.png";
 
     public static final int INPUT_TEXTFIELD_CHARSIZE = 18;
 
@@ -34,7 +34,7 @@ public class CommonConstants {
     public static final int ITEMPANEL_ROW5_NORTH_PAD = ITEMPANEL_ROW4_NORTH_PAD + 125;
     public static final int ITEMPANEL_ROW6_NORTH_PAD = ITEMPANEL_ROW5_NORTH_PAD + 35;
     public static final int ITEMPANEL_ROW7_NORTH_PAD = ITEMPANEL_ROW6_NORTH_PAD + 65;
-    public static final int ITEMPANEL_NET_PROFIT_LABEL_WEST_PAD = 215;
+    public static final int ITEMPANEL_NET_PROFIT_LABEL_WEST_PAD = 200;
     public static final int ITEMPANEL_NET_PROFIT_TF_WEST_PAD = 125;
     public static final int ITEMPANEL_NET_PROFIT_MARGIN_LABEL_WEST_PAD = ITEMPANEL_NET_PROFIT_TF_WEST_PAD + 15;
     public static final int ITEMPANEL_NET_PROFIT_MARGIN_TF_WEST_PAD = ITEMPANEL_NET_PROFIT_MARGIN_LABEL_WEST_PAD + 100;
