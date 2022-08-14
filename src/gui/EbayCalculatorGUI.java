@@ -58,60 +58,54 @@ public class EbayCalculatorGUI extends JFrame {
         SpringLayout sprLayout = new SpringLayout();
         itemPanel.setLayout(sprLayout);
 
-        // Item Cost
-        JLabel lItemCost = new JLabel(CommonConstants.ITEM_COST_LABEL);
-        JTextField tFItemCost = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
-
-        itemPanel.add(lItemCost);
-        itemPanel.add(tFItemCost);
-
-
-        // Item Shipping
-        JLabel lItemBoughtShipping = new JLabel(CommonConstants.ITEM_SHIPPING_LABEL);
-        JTextField tFItemBoughtShipping = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
-
-        itemPanel.add(lItemBoughtShipping);
-        itemPanel.add(tFItemBoughtShipping);
-
-
-        // Item Purchasing Configuration (Item Cost and Item Bought Shipping)
-        sprLayout.putConstraint(SpringLayout.WEST, lItemCost, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, lItemCost, CommonConstants.ITEMPANEL_ROW1_NORTH_PAD, SpringLayout.NORTH, itemPanel);
-        sprLayout.putConstraint(SpringLayout.WEST, tFItemCost, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, tFItemCost, CommonConstants.ITEMPANEL_ROW1_NORTH_PAD, SpringLayout.NORTH, itemPanel);
-
-        sprLayout.putConstraint(SpringLayout.WEST, lItemBoughtShipping, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, lItemBoughtShipping, CommonConstants.ITEMPANEL_ROW2_NORTH_PAD, SpringLayout.NORTH, itemPanel);
-        sprLayout.putConstraint(SpringLayout.WEST, tFItemBoughtShipping, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, tFItemBoughtShipping, CommonConstants.ITEMPANEL_ROW2_NORTH_PAD, SpringLayout.NORTH, itemPanel);
-
-
-
         // Item Sold
         JLabel lItemSold = new JLabel(CommonConstants.ITEM_SOLD_LABEL);
+        lItemSold.setFont(new Font("Dialog", Font.BOLD, CommonConstants.ITEMPANEL_FONT_SIZE));
+
         JTextField tFItemSold = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        tFItemSold.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
 
         itemPanel.add(lItemSold);
         itemPanel.add(tFItemSold);
 
         // Item Sold Shipping
         JLabel lItemSoldShipping = new JLabel(CommonConstants.ITEM_SHIPPING_LABEL);
+        lItemSoldShipping.setFont(new Font("Dialog", Font.BOLD, CommonConstants.ITEMPANEL_FONT_SIZE));
+
         JTextField tFItemSoldShipping = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        tFItemSoldShipping.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
 
         itemPanel.add(lItemSoldShipping);
         itemPanel.add(tFItemSoldShipping);
 
         // Item Purchasing Configuration (Item Sold and Item Sold Shipping)
         sprLayout.putConstraint(SpringLayout.WEST, lItemSold, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, lItemSold, CommonConstants.ITEMPANEL_ROW3_NORTH_PAD, SpringLayout.NORTH, itemPanel);
+        sprLayout.putConstraint(SpringLayout.NORTH, lItemSold, CommonConstants.ITEMPANEL_ROW1_NORTH_PAD, SpringLayout.NORTH, itemPanel);
         sprLayout.putConstraint(SpringLayout.WEST, tFItemSold, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, tFItemSold, CommonConstants.ITEMPANEL_ROW3_NORTH_PAD, SpringLayout.NORTH, itemPanel);
+        sprLayout.putConstraint(SpringLayout.NORTH, tFItemSold, CommonConstants.ITEMPANEL_ROW1_NORTH_PAD, SpringLayout.NORTH, itemPanel);
 
         sprLayout.putConstraint(SpringLayout.WEST, lItemSoldShipping, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, lItemSoldShipping, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, SpringLayout.NORTH, itemPanel);
+        sprLayout.putConstraint(SpringLayout.NORTH, lItemSoldShipping, CommonConstants.ITEMPANEL_ROW2_NORTH_PAD, SpringLayout.NORTH, itemPanel);
         sprLayout.putConstraint(SpringLayout.WEST, tFItemSoldShipping, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, tFItemSoldShipping, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, SpringLayout.NORTH, itemPanel);
+        sprLayout.putConstraint(SpringLayout.NORTH, tFItemSoldShipping, CommonConstants.ITEMPANEL_ROW2_NORTH_PAD, SpringLayout.NORTH, itemPanel);
 
+
+        // Item Cost
+        JLabel lItemCost = new JLabel(CommonConstants.ITEM_COST_LABEL);
+        lItemCost.setFont(new Font("Dialog", Font.BOLD, CommonConstants.ITEMPANEL_FONT_SIZE));
+
+        JTextField tFItemCost = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        tFItemCost.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
+
+        itemPanel.add(lItemCost);
+        itemPanel.add(tFItemCost);
+
+
+        // Item Purchasing Configuration (Item Cost and Item Bought Shipping)
+        sprLayout.putConstraint(SpringLayout.WEST, lItemCost, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, SpringLayout.WEST, itemPanel);
+        sprLayout.putConstraint(SpringLayout.NORTH, lItemCost, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, SpringLayout.NORTH, itemPanel);
+        sprLayout.putConstraint(SpringLayout.WEST, tFItemCost, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, SpringLayout.WEST, itemPanel);
+        sprLayout.putConstraint(SpringLayout.NORTH, tFItemCost, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, SpringLayout.NORTH, itemPanel);
 
         this.getContentPane().add(itemPanel, BorderLayout.CENTER);
         System.out.println("End adding Item Panel.");

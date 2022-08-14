@@ -14,15 +14,18 @@ public class CommonConstants {
 
     public static final String ITEM_SOLD_LABEL = "Item Sold: ";
 
-    public static final int INPUT_TEXTFIELD_CHARSIZE = 20;
+    public static final int INPUT_TEXTFIELD_CHARSIZE = 18;
 
-    public static final String ITEM_SHIPPING_LABEL = "Item Shipping: ";
+    public static final String ITEM_SHIPPING_LABEL = "Ship Charge: ";
+
+    public static final int ITEMPANEL_FONT_SIZE = 18;
 
     // Used for padding in the SpringLayout constraints
-    public static final int ITEMPANEL_TEXTFIELD_WEST_PAD = 180;
-    public static final int ITEMPANEL_LABEL_WEST_PAD = 75;
-    public static final int ITEMPANEL_ROW1_NORTH_PAD = 65;
-    public static final int ITEMPANEL_ROW2_NORTH_PAD = ITEMPANEL_ROW1_NORTH_PAD + 30;
-    public static final int ITEMPANEL_ROW3_NORTH_PAD = ITEMPANEL_ROW2_NORTH_PAD + 30;
-    public static final int ITEMPANEL_ROW4_NORTH_PAD = ITEMPANEL_ROW3_NORTH_PAD + 30;
+    public static final int ITEMPANEL_TEXTFIELD_WEST_PAD = 185;
+    public static final int ITEMPANEL_LABEL_WEST_PAD = 45;
+    public static final int ITEMPANEL_ROW1_NORTH_PAD = 45;
+    public static final int ITEMPANEL_ROW2_NORTH_PAD = ITEMPANEL_ROW1_NORTH_PAD + 35;
+    public static final int ITEMPANEL_ROW3_NORTH_PAD = ITEMPANEL_ROW2_NORTH_PAD + 35;
+    public static final int ITEMPANEL_ROW4_NORTH_PAD = ITEMPANEL_ROW3_NORTH_PAD + 35;
+
 }
