@@ -6,7 +6,15 @@ package service;
 public class CalculateProfitService {
     public static float calculateNetProfit(float itemSold, float itemShipping, float itemBought){
         double ebayFees = ((itemSold + itemShipping) - itemBought) * 0.129;
-        return (float) ((itemSold + itemShipping) - itemBought - ebayFees);
+        float netProfit = 0;
+
+        try{
+            netProfit = (float) ((itemSold + itemShipping) - itemBought - ebayFees);
+        }catch (ArithmeticException e){
+            netProfit = 0;
+        }
+
+        return netProfit;
     }
 
     public static float calculateNetProfitMargin(float itemSold, float itemShipping, float itemBought){
