@@ -24,7 +24,7 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         System.out.println("Start adding GUI items");
         addImageGuiItems();
         addItemGuiItems();
-        addProfitGuiItems();
+//        addProfitGuiItems();
         System.out.println("End adding GUI items");
     }
 
@@ -55,6 +55,8 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
 
         // ItemPanel Panel
         JPanel itemPanel = new JPanel();
+        itemPanel.setBackground(new Color(3,4,3));
+
         SpringLayout sprLayout = new SpringLayout();
         itemPanel.setLayout(sprLayout);
 
@@ -101,21 +103,46 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         itemPanel.add(tFItemCost);
 
 
-        // Item Purchasing Configuration (Item Cost and Item Bought Shipping)
+        // Item Sold Configuration (Item Cost and Item Bought Shipping)
         SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lItemCost, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, itemPanel);
         SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, lItemCost, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, itemPanel);
         SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFItemCost, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, itemPanel);
         SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFItemCost, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, itemPanel);
-        
+
+        // Display Net Profit
+        JLabel lNetProfit = new JLabel(CommonConstants.NET_PROFIT_LABEL);
+        JTextField tFNetProfit = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        tFNetProfit.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_FONT_SIZE));
+        itemPanel.add(lNetProfit);
+        itemPanel.add(tFNetProfit);
+
+        // Display Profit Margins
+        JLabel lNetProfitMargins = new JLabel(CommonConstants.NET_PROFIT_MARGIN_LABEL);
+        JTextField tFNetProfitMargins = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        tFNetProfitMargins.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_MARGIN_FONT_SIZE));
+        itemPanel.add(lNetProfitMargins);
+        itemPanel.add(tFNetProfitMargins);
+
+        // Profit Configuration (Net Profit and Net Profit Margin)
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lNetProfit, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, lNetProfit, CommonConstants.ITEMPANEL_ROW5_NORTH_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFNetProfit, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFNetProfit, CommonConstants.ITEMPANEL_ROW5_NORTH_PAD, itemPanel);
+
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lNetProfitMargins, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, lNetProfitMargins, CommonConstants.ITEMPANEL_ROW6_NORTH_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFNetProfitMargins, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFNetProfitMargins, CommonConstants.ITEMPANEL_ROW6_NORTH_PAD, itemPanel);
+
+
         this.getContentPane().add(itemPanel, BorderLayout.CENTER);
         System.out.println("End adding Item Panel.");
     }
 
     public void addProfitGuiItems(){
         System.out.println("Start adding Profit GUI Items");
-        SpringLayout sprLayout = new SpringLayout();
+
         JPanel profitPanel = new JPanel();
-//        profitPanel.setLayout(sprLayout);
 
         // Display Net Profit
         JLabel lNetProfit = new JLabel(CommonConstants.NET_PROFIT_LABEL);
@@ -131,7 +158,7 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
         profitPanel.add(lNetProfitMargins);
         profitPanel.add(tFNetProfitMargins);
 
-        this.getContentPane().add(profitPanel, BorderLayout.SOUTH);
+        this.getContentPane().add(profitPanel, BorderLayout.CENTER);
         System.out.println("End adding Profit GUI Items");
 
     }

@@ -39,4 +39,6 @@ public class CommonConstants {
     public static final String SPRINGLAYOUT_SOUTH = "SOUTH";
     public static final String SPRINGLAYOUT_EAST = "EAST";
 
+    public static final int ITEMPANEL_ROW5_NORTH_PAD = ITEMPANEL_ROW4_NORTH_PAD + 60;
+    public static final int ITEMPANEL_ROW6_NORTH_PAD = ITEMPANEL_ROW5_NORTH_PAD + 30;
 }
