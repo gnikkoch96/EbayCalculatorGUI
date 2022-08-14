@@ -28,4 +28,15 @@ public class CommonConstants {
     public static final int ITEMPANEL_ROW3_NORTH_PAD = ITEMPANEL_ROW2_NORTH_PAD + 35;
     public static final int ITEMPANEL_ROW4_NORTH_PAD = ITEMPANEL_ROW3_NORTH_PAD + 35;
 
+    public static final String NET_PROFIT_LABEL = "Net Profit:";
+    public static final int ITEMPANEL_NETPROFT_FONT_SIZE = 30;
+    public static final String NET_PROFIT_MARGIN_LABEL = "Profit Margin: ";
+    public static final int ITEMPANEL_NETPROFT_MARGIN_FONT_SIZE = 8;
+
+
+    public static final String SPRINGLAYOUT_WEST = "WEST";
+    public static final String SPRINGLAYOUT_NORTH = "NORTH";
+    public static final String SPRINGLAYOUT_SOUTH = "SOUTH";
+    public static final String SPRINGLAYOUT_EAST = "EAST";
+
 }

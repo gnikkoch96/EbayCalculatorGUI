@@ -2,12 +2,14 @@ package gui;
 
 import contstants.CommonConstants;
 import utils.LoadImageService;
+import utils.SpringLayoutConstraintService;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class EbayCalculatorGUI extends JFrame {
+public class EbayCalculatorGUI extends JFrame implements ActionListener {
     public EbayCalculatorGUI() throws Exception {
         super(CommonConstants.APP_NAME);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -16,20 +18,18 @@ public class EbayCalculatorGUI extends JFrame {
 //        this.setResizable(false);
 
         addGUIItems();
-
-        this.setVisible(true);
     }
 
     public void addGUIItems() throws Exception{
         System.out.println("Start adding GUI items");
-        addImageLayer();
-        addItemPanel();
-        addProfitPanel();
+        addImageGuiItems();
+        addItemGuiItems();
+        addProfitGuiItems();
         System.out.println("End adding GUI items");
     }
 
     // Adds the Logo for the GUI
-    public void addImageLayer() throws Exception{
+    public void addImageGuiItems() throws Exception{
         System.out.println("Start Loading Logo.");
 
         // I am starting to see how important it is to look at someone else's code and understanding. I would honestly recommend going to a
@@ -50,7 +50,7 @@ public class EbayCalculatorGUI extends JFrame {
     }
 
     // Adds GUI Items for Item costs and sold
-    public void addItemPanel(){
+    public void addItemGuiItems(){
         System.out.println("Start adding Item Panel.");
 
         // ItemPanel Panel
@@ -64,6 +64,7 @@ public class EbayCalculatorGUI extends JFrame {
 
         JTextField tFItemSold = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
         tFItemSold.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
+        tFItemSold.addActionListener(this);
 
         itemPanel.add(lItemSold);
         itemPanel.add(tFItemSold);
@@ -79,16 +80,15 @@ public class EbayCalculatorGUI extends JFrame {
         itemPanel.add(tFItemSoldShipping);
 
         // Item Purchasing Configuration (Item Sold and Item Sold Shipping)
-        sprLayout.putConstraint(SpringLayout.WEST, lItemSold, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, lItemSold, CommonConstants.ITEMPANEL_ROW1_NORTH_PAD, SpringLayout.NORTH, itemPanel);
-        sprLayout.putConstraint(SpringLayout.WEST, tFItemSold, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, tFItemSold, CommonConstants.ITEMPANEL_ROW1_NORTH_PAD, SpringLayout.NORTH, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lItemSold, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, lItemSold, CommonConstants.ITEMPANEL_ROW1_NORTH_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFItemSold, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFItemSold, CommonConstants.ITEMPANEL_ROW1_NORTH_PAD, itemPanel);
 
-        sprLayout.putConstraint(SpringLayout.WEST, lItemSoldShipping, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, lItemSoldShipping, CommonConstants.ITEMPANEL_ROW2_NORTH_PAD, SpringLayout.NORTH, itemPanel);
-        sprLayout.putConstraint(SpringLayout.WEST, tFItemSoldShipping, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, tFItemSoldShipping, CommonConstants.ITEMPANEL_ROW2_NORTH_PAD, SpringLayout.NORTH, itemPanel);
-
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lItemSoldShipping, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, lItemSoldShipping, CommonConstants.ITEMPANEL_ROW2_NORTH_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFItemSoldShipping, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFItemSoldShipping, CommonConstants.ITEMPANEL_ROW2_NORTH_PAD, itemPanel);
 
         // Item Cost
         JLabel lItemCost = new JLabel(CommonConstants.ITEM_COST_LABEL);
@@ -102,18 +102,43 @@ public class EbayCalculatorGUI extends JFrame {
 
 
         // Item Purchasing Configuration (Item Cost and Item Bought Shipping)
-        sprLayout.putConstraint(SpringLayout.WEST, lItemCost, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, lItemCost, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, SpringLayout.NORTH, itemPanel);
-        sprLayout.putConstraint(SpringLayout.WEST, tFItemCost, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, SpringLayout.WEST, itemPanel);
-        sprLayout.putConstraint(SpringLayout.NORTH, tFItemCost, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, SpringLayout.NORTH, itemPanel);
-
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lItemCost, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, lItemCost, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFItemCost, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFItemCost, CommonConstants.ITEMPANEL_ROW4_NORTH_PAD, itemPanel);
+        
         this.getContentPane().add(itemPanel, BorderLayout.CENTER);
         System.out.println("End adding Item Panel.");
     }
 
-    // Adds GUI Items that displays the profit and profit percentage
-    public void addProfitPanel(){
+    public void addProfitGuiItems(){
+        System.out.println("Start adding Profit GUI Items");
+        SpringLayout sprLayout = new SpringLayout();
+        JPanel profitPanel = new JPanel();
+//        profitPanel.setLayout(sprLayout);
+
+        // Display Net Profit
+        JLabel lNetProfit = new JLabel(CommonConstants.NET_PROFIT_LABEL);
+        JTextField tFNetProfit = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        tFNetProfit.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_FONT_SIZE));
+        profitPanel.add(lNetProfit);
+        profitPanel.add(tFNetProfit);
+
+        // Display Profit Margins
+        JLabel lNetProfitMargins = new JLabel(CommonConstants.NET_PROFIT_MARGIN_LABEL);
+        JTextField tFNetProfitMargins = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        tFNetProfitMargins.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_MARGIN_FONT_SIZE));
+        profitPanel.add(lNetProfitMargins);
+        profitPanel.add(tFNetProfitMargins);
+
+        this.getContentPane().add(profitPanel, BorderLayout.SOUTH);
+        System.out.println("End adding Profit GUI Items");
 
     }
 
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println(e.getActionCommand());
+    }
 }
