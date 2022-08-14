@@ -65,7 +65,7 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
 
         JTextField tFItemSold = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
         tFItemSold.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_FONT_SIZE));
-        tFItemSold.addActionListener(this);
+
 
         itemPanel.add(lItemSold);
         itemPanel.add(tFItemSold);

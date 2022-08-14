@@ -1,11 +1,14 @@
 package testing;
 
+import entitiy.JNumTextField;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class JTextField_ActionListener extends JFrame{
-    JTextField text = new JTextField("Press Return", 40);
+//    JTextField text = new JTextField("Press Return", 40);
+    JNumTextField text = new JNumTextField(40);
 
     public JTextField_ActionListener() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
