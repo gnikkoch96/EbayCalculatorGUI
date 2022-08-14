@@ -55,7 +55,7 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
 
         // ItemPanel Panel
         JPanel itemPanel = new JPanel();
-        itemPanel.setBackground(new Color(3,4,3));
+//        itemPanel.setBackground(new Color(3,4,3));
 
         SpringLayout sprLayout = new SpringLayout();
         itemPanel.setLayout(sprLayout);
@@ -111,28 +111,31 @@ public class EbayCalculatorGUI extends JFrame implements ActionListener {
 
         // Display Net Profit
         JLabel lNetProfit = new JLabel(CommonConstants.NET_PROFIT_LABEL);
-        JTextField tFNetProfit = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
-        tFNetProfit.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_FONT_SIZE));
+        JTextField tFNetProfit = new JTextField(10);
+        tFNetProfit.setHorizontalAlignment(SwingConstants.CENTER);
+        tFNetProfit.setFont(new Font("Dialog", Font.PLAIN, 28));
+        tFNetProfit.setEditable(false);
         itemPanel.add(lNetProfit);
         itemPanel.add(tFNetProfit);
 
         // Display Profit Margins
         JLabel lNetProfitMargins = new JLabel(CommonConstants.NET_PROFIT_MARGIN_LABEL);
-        JTextField tFNetProfitMargins = new JTextField(CommonConstants.INPUT_TEXTFIELD_CHARSIZE);
+        JTextField tFNetProfitMargins = new JTextField(8);
         tFNetProfitMargins.setFont(new Font("Dialog", Font.PLAIN, CommonConstants.ITEMPANEL_NETPROFT_MARGIN_FONT_SIZE));
+        tFNetProfitMargins.setEditable(false);
         itemPanel.add(lNetProfitMargins);
         itemPanel.add(tFNetProfitMargins);
 
         // Profit Configuration (Net Profit and Net Profit Margin)
-        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lNetProfit, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lNetProfit, CommonConstants.ITEMPANEL_NET_PROFIT_LABEL_WEST_PAD, itemPanel);
         SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, lNetProfit, CommonConstants.ITEMPANEL_ROW5_NORTH_PAD, itemPanel);
-        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFNetProfit, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, itemPanel);
-        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFNetProfit, CommonConstants.ITEMPANEL_ROW5_NORTH_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFNetProfit, CommonConstants.ITEMPANEL_NET_PROFIT_TF_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFNetProfit, CommonConstants.ITEMPANEL_ROW6_NORTH_PAD, itemPanel);
 
-        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lNetProfitMargins, CommonConstants.ITEMPANEL_LABEL_WEST_PAD, itemPanel);
-        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, lNetProfitMargins, CommonConstants.ITEMPANEL_ROW6_NORTH_PAD, itemPanel);
-        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFNetProfitMargins, CommonConstants.ITEMPANEL_TEXTFIELD_WEST_PAD, itemPanel);
-        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFNetProfitMargins, CommonConstants.ITEMPANEL_ROW6_NORTH_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, lNetProfitMargins, CommonConstants.ITEMPANEL_NET_PROFIT_MARGIN_LABEL_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, lNetProfitMargins, CommonConstants.ITEMPANEL_ROW7_NORTH_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_WEST, tFNetProfitMargins, CommonConstants.ITEMPANEL_NET_PROFIT_MARGIN_TF_WEST_PAD, itemPanel);
+        SpringLayoutConstraintService.addSpringLayoutConstraint(sprLayout, CommonConstants.SPRINGLAYOUT_NORTH, tFNetProfitMargins, CommonConstants.ITEMPANEL_ROW7_NORTH_PAD, itemPanel);
 
 
         this.getContentPane().add(itemPanel, BorderLayout.CENTER);
