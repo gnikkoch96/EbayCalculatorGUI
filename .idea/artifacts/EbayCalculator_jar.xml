@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EbayCalculator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/EbayCalculator_jar</output-path>
+    <root id="archive" name="EbayCalculator.jar">
+      <element id="module-output" name="EbayCalculator" />
+    </root>
+  </artifact>
+</component>

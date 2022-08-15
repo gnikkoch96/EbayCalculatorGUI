@@ -46,8 +46,7 @@ public class EbayCalculatorGUI extends JFrame implements KeyListener {
         JPanel imageLayer = new JPanel();
 
         if(image == null){
-            System.out.println("ERROR Image not loaded...Aborting Program 3...2..1.");
-            throw new Exception();
+            System.out.println("ERROR Image not loaded");
         }
 
         imageLayer.add(image);

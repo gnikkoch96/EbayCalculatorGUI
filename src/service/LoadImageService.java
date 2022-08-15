@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 /*
  *  Note: place images in the resource folder
@@ -15,12 +16,19 @@ public class LoadImageService{
         JLabel imageLabel;
 
         try{
-            String filePath = "src/resources/" + fileName;
-            bImage = ImageIO.read(new File(filePath));
+            String filePath = "resources/" + fileName;
+            InputStream inputStream = LoadImageService.class.getResourceAsStream(filePath);
+
+            if(inputStream == null){
+                inputStream = LoadImageService.class.getClassLoader().getResourceAsStream(filePath);
+            }
+
+            bImage = ImageIO.read(inputStream);
+
             imageLabel = new JLabel(new ImageIcon(bImage));
 
             return imageLabel;
-        }catch(IOException e){
+        }catch(Exception e){
             System.out.println("ERROR: Failed to Load Image: " + e);
             return null;
         }
