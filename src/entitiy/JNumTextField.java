@@ -12,10 +12,7 @@ public class JNumTextField extends JTextField{
     public JNumTextField(int charCount){
         super(charCount);
 
-        //N: I can see why we use adapters because sometimes we only need to
-        // override one method as opposed to more
         this.addKeyListener(new KeyAdapter() {
-            //N: We override this method cause we have time to prevent the character from entering the textfield (keyType or keyReleased)
             @Override
             public void keyPressed(KeyEvent e) {
                 boolean pressedDot = false;

@@ -38,10 +38,6 @@ public class EbayCalculatorGUI extends JFrame implements KeyListener {
     // Adds the Logo for the GUI
     public void addImageGuiItems() throws Exception{
         System.out.println("Start Loading Logo.");
-
-        // I am starting to see how important it is to look at someone else's code and understanding. I would honestly recommend going to a
-        // decently sized open source program where you can try to learn about the whole process or even just a portion of the process and see
-        // how it is coded. You can learn from reading the code
         JLabel image = LoadImageService.loadImage(CommonConstants.LOGO_FILENAME);
         JPanel imageLayer = new JPanel();
 
